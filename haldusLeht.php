@@ -28,7 +28,6 @@ if(!empty($_REQUEST["lisa2"])){
     $update_kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 //lisame ostukorva teraviljatooted
 if(!empty($_REQUEST["lisa3"])){
@@ -42,7 +41,6 @@ if(!empty($_REQUEST["lisa3"])){
     $update_kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 
 if(isset($_REQUEST["kustuta_ostukorv"])){
