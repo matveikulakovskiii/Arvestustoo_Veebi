@@ -19,7 +19,6 @@ if(!empty($_REQUEST["lisa2"]) && $_SESSION['onAdmin']==1){
     $kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 //lisame ostukorva teraviljatooted
 if(!empty($_REQUEST["lisa3"]) && $_SESSION['onAdmin']==1){
@@ -29,7 +28,6 @@ if(!empty($_REQUEST["lisa3"]) && $_SESSION['onAdmin']==1){
     $kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 
 if(!empty($_REQUEST["add"]) && !empty($_REQUEST["add_jook"]) && !empty($_REQUEST["add_jook_kogus"]) && $_SESSION['onAdmin']==1){
@@ -39,7 +37,6 @@ if(!empty($_REQUEST["add"]) && !empty($_REQUEST["add_jook"]) && !empty($_REQUEST
     $kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 if(!empty($_REQUEST["add2"]) && !empty($_REQUEST["add2_lihatooted"]) && !empty($_REQUEST["add2_lihatooted_kogus"]) && $_SESSION['onAdmin']==1){
     global $yhendus;
@@ -48,7 +45,6 @@ if(!empty($_REQUEST["add2"]) && !empty($_REQUEST["add2_lihatooted"]) && !empty($
     $kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 if(!empty($_REQUEST["add3"]) && !empty($_REQUEST["add3_teraviljatooted"]) && !empty($_REQUEST["add3_teraviljatooted_kogus"]) && $_SESSION['onAdmin']==1){
     global $yhendus;
@@ -57,7 +53,6 @@ if(!empty($_REQUEST["add3"]) && !empty($_REQUEST["add3_teraviljatooted"]) && !em
     $kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
     $yhendus->close();
-    //exit();
 }
 
 if(isset($_REQUEST["kustuta1"]) && $_SESSION['onAdmin']==1){
