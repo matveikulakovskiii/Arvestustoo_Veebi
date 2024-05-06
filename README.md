@@ -5,7 +5,7 @@ Me kontrollime, kas nende andmetega kasutaja on andmebaasis olemas ja suuname ta
 # Admin leht
 ![pilt](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/admin.PNG)
 # Haldus Leht
-
+![pilt](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/haldus.PNG)
 
 
 # Kõik failinimed
