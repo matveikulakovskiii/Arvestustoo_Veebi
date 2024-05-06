@@ -17,7 +17,7 @@ session_start();
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color:black;
+            background-color:red;
             background-size: cover;
             background-position: unset;
             background-repeat: no-repeat;
