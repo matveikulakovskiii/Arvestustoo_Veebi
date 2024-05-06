@@ -97,14 +97,14 @@ if(isset($_REQUEST["kustuta_ostukorv"])){
         }
 
         table {
-            width: 100%;
+            width: 50%;
             border-collapse: collapse;
             margin-top: 20px;
         }
 
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 2px;
             text-align: left;}
 
         th,td {
