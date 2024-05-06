@@ -119,6 +119,9 @@ if(isset($_REQUEST["kustuta_ostukorv"])){
         tr:hover {
             background-color: #ddd;
         }
+        .tables {
+            margin-top: 530px;
+        }
     </style>
 </head>
 <body>
@@ -164,6 +167,7 @@ if(isset($_REQUEST["kustuta_ostukorv"])){
 <?php
 if(isset($_SESSION['kasutaja']))
 ?>
+<div class="tables">
 <table>
     <tr>
         <th>Lihatooted</th>
@@ -232,6 +236,7 @@ if(isset($_SESSION['kasutaja']))
     $yhendus->close();
     ?>    
 </table>
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
