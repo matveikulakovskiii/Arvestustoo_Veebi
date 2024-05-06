@@ -3,7 +3,7 @@
 # Login
 Me kontrollime, kas nende andmetega kasutaja on andmebaasis olemas ja suuname ta seejärel saidile.
 # Admin leht
-![pilt](https://github.com/artursuskevits/Jooksvoistlus/assets/admin.PNG)
+![pilt](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/admin.PNG)
 # Haldus Leht
 
 
