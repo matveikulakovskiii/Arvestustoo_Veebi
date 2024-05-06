@@ -1,6 +1,10 @@
 # Veebipood Read Me  
 
-
+# Login
+Me kontrollime, kas nende andmetega kasutaja on andmebaasis olemas ja suuname ta seejärel saidile.
+# Admin leht
+![pilt](https://github.com/artursuskevits/Jooksvoistlus/assets/admin.PNG)
+# Haldus Leht
 
 
 
