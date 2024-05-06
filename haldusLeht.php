@@ -158,6 +158,7 @@ function isAdmin(){
             <li><a href="adminLeht.php">Admin leht</a></li>
         <?php }     ?>
     </ul>
+    <img src="Maxima_logo.png" alt="Description of the image">
 </nav>
 <h2 >Kasutaja Leht</h2>
 <?php
