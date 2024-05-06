@@ -2,84 +2,24 @@
 <?php
 require_once ('conf.php');
 session_start();
-//lisame ostukorva joogid
-if(!empty($_REQUEST["lisa"]) && $_SESSION['onAdmin']==1){
+
+
+
+if(!empty($_REQUEST["add2"]) && !empty($_REQUEST["add2_toote"]) && !empty($_REQUEST["add2_toote_kategooria"])){
     global $yhendus;
-    $kask = $yhendus->prepare("INSERT INTO ostukorv (joogid_id) VALUES(?)");
-    $kask->bind_param("s", $_REQUEST["lisa"]);
+    $kask = $yhendus->prepare("INSERT INTO veebipood (veebipoodi_toote_nimetus, veebipoodi_toote_hind, veebipoodi_toote_kogus, veebipoodi_toote_kategooria) VALUES(?, ?, ?, ?)");
+    $kask->bind_param("siis", $_REQUEST["add2"], $_REQUEST["add2_toote"], $_REQUEST["add2_toote_kogus"], $_REQUEST["add2_toote_kategooria"]);
     $kask->execute();
-    header("Location: $_SERVER[PHP_SELF]");
-    $yhendus->close();
-}
-//lisame ostukorva lihatooted
-if(!empty($_REQUEST["lisa2"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $kask = $yhendus->prepare("INSERT INTO ostukorv (lihatooted_id) VALUES(?)");
-    $kask->bind_param("s", $_REQUEST["lisa2"]);
-    $kask->execute();
-    header("Location: $_SERVER[PHP_SELF]");
-    $yhendus->close();
-}
-//lisame ostukorva teraviljatooted
-if(!empty($_REQUEST["lisa3"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $kask = $yhendus->prepare("INSERT INTO ostukorv (teraciljatooted_id) VALUES(?)");
-    $kask->bind_param("s", $_REQUEST["lisa3"]);
-    $kask->execute();
-    header("Location: $_SERVER[PHP_SELF]");
-    $yhendus->close();
+    //$yhendus->close();
 }
 
-if(!empty($_REQUEST["add"]) && !empty($_REQUEST["add_jook"]) && !empty($_REQUEST["add_jook_kogus"]) && $_SESSION['onAdmin']==1){
+if(isset($_REQUEST["kustuta2"])){
     global $yhendus;
-    $kask = $yhendus->prepare("INSERT INTO joogid (joogid_nimi, joogid_hind, joogid_kogus) VALUES(?, ?, ?)");
-    $kask->bind_param("sdi", $_REQUEST["add"], $_REQUEST["add_jook"], $_REQUEST["add_jook_kogus"]);
-    $kask->execute();
-    header("Location: $_SERVER[PHP_SELF]");
-    $yhendus->close();
-}
-if(!empty($_REQUEST["add2"]) && !empty($_REQUEST["add2_lihatooted"]) && !empty($_REQUEST["add2_lihatooted_kogus"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $kask = $yhendus->prepare("INSERT INTO lihatooted (lihatooted_nimi, lihatooted_hind, lihatooted_kogus) VALUES(?, ?, ?)");
-    $kask->bind_param("sdi", $_REQUEST["add2"], $_REQUEST["add2_lihatooted"], $_REQUEST["add2_lihatooted_kogus"]);
-    $kask->execute();
-    header("Location: $_SERVER[PHP_SELF]");
-    $yhendus->close();
-}
-if(!empty($_REQUEST["add3"]) && !empty($_REQUEST["add3_teraviljatooted"]) && !empty($_REQUEST["add3_teraviljatooted_kogus"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $kask = $yhendus->prepare("INSERT INTO teraciljatooted (teraciljatooted_nimi, teraciljatooted_hind, teraciljatooted_kogus) VALUES(?, ?, ?)");
-    $kask->bind_param("sdi", $_REQUEST["add3"], $_REQUEST["add3_teraviljatooted"], $_REQUEST["add3_teraviljatooted_kogus"]);
-    $kask->execute();
-    header("Location: $_SERVER[PHP_SELF]");
-    $yhendus->close();
-}
-
-if(isset($_REQUEST["kustuta1"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $paring = $yhendus->prepare("DELETE FROM joogid WHERE joogid_id=?");
-    $paring->bind_param("i", $_REQUEST["kustuta1"]);
-    $paring->execute();
-}
-if(isset($_REQUEST["kustuta2"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $paring = $yhendus->prepare("DELETE FROM lihatooted WHERE lihatooted_id=?");
+    $paring = $yhendus->prepare("DELETE FROM veebipood WHERE vebipood_id=?");
     $paring->bind_param("i", $_REQUEST["kustuta2"]);
     $paring->execute();
 }
-if(isset($_REQUEST["kustuta3"]) && $_SESSION['onAdmin']==1){
-    global $yhendus;
-    $paring = $yhendus->prepare("DELETE FROM teraciljatooted WHERE teraciljatooted_id=?");
-    $paring->bind_param("i", $_REQUEST["kustuta3"]);
-    $paring->execute();
-}
-function isAdmin(){
-    if (isset($_SESSION['onAdmin'])) {
-        return $_SESSION['onAdmin'];
-    } else {
-        return;
-    }
-}
+
 ?>
 <!doctype html>
 <html lang="et">
@@ -89,7 +29,77 @@ function isAdmin(){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Veebipood</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            background-size: cover;
+            background-position: unset;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th,td {
+            background-color: darkgrey;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -132,111 +142,39 @@ function isAdmin(){
 </nav>
 <h2> Administreerimis Leht</h2>
 <table>
-    <tr>
-        <th>Joogid</th>
+      <tr>
+        <th>Veebipooe tooted</th>
         <th>Hind (€/kg)</th>
         <th>Kogus</th>
-    </tr>
-    <?php
-    // ! + knopka tab - näitab html koodi algus
-    global $yhendus;
-    $kask=$yhendus->prepare("SELECT joogid_id, joogid_nimi, joogid_hind, joogid_kogus FROM joogid");
-    $kask->bind_result($joogid_id, $joogid_nimi, $joogid_hind, $joogid_kogus);
-    $kask->execute();
-    while($kask->fetch()) {
-        echo "<tr>";
-        echo "<td>" . $joogid_nimi . "</td>";
-        echo "<td>" . $joogid_hind . "</td>";
-        echo "<td>" . $joogid_kogus . "</td>";
-        if ($_SESSION['onAdmin'] == 0) {
-            echo "<td><a href='?lisa=$joogid_id'>Lisa Ostukorva</a></td>";
-        }
-        if (isAdmin()) {
-            echo "<td><a href='?kustuta1=$joogid_id'>Kustuta</a></td>";
-        }
-    }
-        echo "<tr>";
-        echo "<td>";
-        if(isAdmin()) { ?>
-            <form action="?">
-                <input type="text" name="add" id="add" placeholder="joogi nimetus">
-                <input type="text" name="add_jook" id="add_jook" placeholder="joogi hind">
-                <input type="text" name="add_jook_kogus" id="add_jook_kogus" placeholder="joogi kogus">
-                <input type="submit" value="Lisa jook">
-            </form>
-        <?php }
-        echo "</td>";
-        echo "</tr>";
-
-    ?>
-
-    <tr>
-        <th>Lihatooted</th>
-        <th>Hind (€/kg)</th>
-        <th>Kogus</th>
+        <th>Kategooria</th>
     </tr>
     <?php
     global $yhendus;
-    $kask2=$yhendus->prepare("SELECT lihatooted_id, lihatooted_nimi, lihatooted_hind, lihatooted_kogus FROM lihatooted");
-    $kask2->bind_result($lihatooted_id, $lihatooted_nimi, $lihatooted_hind, $lihatooted_kogus);
+    $kask2=$yhendus->prepare("SELECT vebipood_id, veebipoodi_toote_nimetus, veebipoodi_toote_hind, veebipoodi_toote_kogus, veebipoodi_toote_kategooria FROM veebipood");
+    $kask2->bind_result($veebipood_id, $veebipoodi_toote_nimi, $veebipoodi_toote_hind, $veebipoodi_toote_kogus, $veebipoodi_toote_kategooria);
     $kask2->execute();
+   
     while($kask2->fetch()){
         echo "<tr>";
-        echo "<td>".$lihatooted_nimi."</td>";
-        echo "<td>".$lihatooted_hind."</td>";
-        echo "<td>".$lihatooted_kogus."</td>";
-        if($_SESSION['onAdmin']==0) {
-            echo "<td><a href='?lisa2=$lihatooted_id'>Lisa Ostukorva</a></td>";
-        }
-        if(isAdmin()) {
-            echo "<td><a href='?kustuta2=$lihatooted_id'>Kustuta</a></td>";
-        }
+        echo "<td>".$veebipoodi_toote_nimi."</td>";
+        echo "<td>".$veebipoodi_toote_hind."</td>";
+        echo "<td>".$veebipoodi_toote_kogus."</td>";
+        echo "<td>".$veebipoodi_toote_kategooria."</td>";
+        echo "<td><a href='?kustuta2=$veebipood_id'>Kustuta</a></td>";
     }
+    //$kask2->close();
+    //$yhendus->close();
     echo "<tr>";
     echo "<td>";
-    if(isAdmin()) { ?>
-        <form action="?">
-            <input type="text" name="add2" id="add2" placeholder="lihatoote nimetus">
-            <input type="text" name="add2_lihatooted" id="add2_lihatooted" placeholder="lihatoote hind">
-            <input type="text" name="add2_lihatooted_kogus" id="add2_lihatooted_kogus" placeholder="lihatoote kogus">
-            <input type="submit" value="Lisa lihatoote">
-        </form>
-    <?php }
-    echo "</td>";
-    echo "</tr>";
     ?>
-    <tr>
-        <th>Teraviljatooted</th>
-        <th>Hind (€/kg)</th>
-        <th>Kogus</th>
-    </tr>
-    <?php
-    global $yhendus;
-    $kask3=$yhendus->prepare("SELECT teraciljatooted_id, teraciljatooted_nimi, teraciljatooted_hind, teraciljatooted_kogus FROM teraciljatooted");
-    $kask3->bind_result($teraviljatooted_id, $teraviljatooted_nimi, $teraviljatooted_hind, $teraciljatooted_kogus);
-    $kask3->execute();
-    while($kask3->fetch()){
-        echo "<tr>";
-        echo "<td>".$teraviljatooted_nimi."</td>";
-        echo "<td>".$teraviljatooted_hind."</td>";
-        echo "<td>".$teraciljatooted_kogus."</td>";
-        if($_SESSION['onAdmin']==0) {
-            echo "<td><a href='?lisa3=$teraviljatooted_id'>Lisa Ostukorva</a></td>";
-        }
-        if(isAdmin()) {
-            echo "<td><a href='?kustuta3=$teraviljatooted_id'>Kustuta</a></td>";
-        }
-    }
-    echo "<tr>";
-    echo "<td>";
-    if(isAdmin()) { ?>
         <form action="?">
-            <input type="text" name="add3" id="add3" placeholder="teraviljatoote nimetus">
-            <input type="text" name="add3_teraviljatooted" id="add3_teraviljatooted" placeholder="teraviljatoote hind">
-            <input type="text" name="add3_teraviljatooted_kogus" id="add3_teraviljatooted_kogus" placeholder="teraviljatoote kogus">
-            <input type="submit" value="Lisa teraviljatoote">
+            <input type="text" name="add2" id="add2" placeholder="toote nimetus">
+            <input type="text" name="add2_toote" id="add2_toote" placeholder="toote hind">
+            <input type="text" name="add2_toote_kogus" id="add2_toote_kogus" placeholder="toote kogus">
+            <input type="text" name="add2_toote_kategooria" id="add2_toote_kategooria" placeholder="toote kategooria">
+            <input type="submit" value="Lisa toote">
         </form>
-    <?php }
+    <?php 
     echo "</td>";
     echo "</tr>";
     ?>
@@ -253,6 +191,5 @@ function isAdmin(){
 
 </body>
 </html>
-
 
 
