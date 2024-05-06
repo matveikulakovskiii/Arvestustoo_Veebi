@@ -1,5 +1,11 @@
 # Veebipood Read Me  
-
+## Sisukord
+1. [Login](https://github.com/matveikulakovski/Arvestustoo_Veebi?tab=readme-ov-file#Login)
+2. [Admin leht](https://github.com/matveikulakovski/Arvestustoo_Veebi?tab=readme-ov-file#admin-leht)
+3. [Haldus Leht](https://github.com/matveikulakovski/Arvestustoo_Veebi?tab=readme-ov-file#haldus-Leht)
+4. [Kõik failinimed](https://github.com/matveikulakovski/Arvestustoo_Veebi?tab=readme-ov-file#kõik-failinimed)
+5. [Ülesanded](https://github.com/matveikulakovski/Arvestustoo_Veebi?tab=readme-ov-file#ülesanded)
+   
 # Login
 Me kontrollime, kas nende andmetega kasutaja on andmebaasis olemas ja suuname ta seejärel saidile.
 # Admin leht
