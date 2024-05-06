@@ -72,3 +72,22 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+#eshkere {
+  position: absolute;
+  top: 550px; /* Distance from top of container */
+  left: 100px;
+  height: 50%;
+  width: 50%;
+}
+#eshkere2 {
+  position: absolute;
+  top: 350px; /* Distance from top of container */
+  left: 100px;
+  height: 50%;
+  width: 50%;
+}

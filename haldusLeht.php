@@ -163,7 +163,7 @@ function isAdmin(){
 <?php
 if(isset($_SESSION['kasutaja']))
 ?>
-<table>
+<table id="eshkere">
     <tr>
         <th>Lihatooted</th>
         <th>Hind (€/kg)</th>
@@ -229,7 +229,7 @@ if(isset($_SESSION['kasutaja']))
     ?>
 </table>
 
-<table>
+<table id = eshkere2>
     <tr>
         <th>Ostukorv</th>
         <th>Hind (€/kg)</th>
