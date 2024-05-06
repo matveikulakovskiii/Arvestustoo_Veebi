@@ -104,12 +104,11 @@ if(isset($_REQUEST["kustuta_ostukorv"])){
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: left;
-        }
+            text-align: left;}
 
         th,td {
             background-color: darkgrey;
-            color: white;
+            background-color: red;
         }
 
         tr:nth-child(even) {
