@@ -1,3 +1,3 @@
 <?php
-$yhendus=new mysqli("d123179.mysql.zonevs.eu", "d123179_matvei", "2006mkThss", "d123179_andmebaas");
+$yhendus=new mysqli("localhost", "root", "", "jooksvoistlus");
 $yhendus->set_charset('utf8');
