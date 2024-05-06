@@ -4,7 +4,14 @@
 
 
 
-
+# Kõik failinimed
+1. adminleht.php
+2. haldusLeht.php
+3. conf.php
+4. style.css
+5. login.php
+6. logout.php
+7. main.php
 
 # Ülesanded
 1. Muuta taustavärvi mitmekesisemaks 
