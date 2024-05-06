@@ -1,0 +1,6 @@
+Muutke taustavärvi mitmekesisemaks 
+muuta laua värvus mitmekesisemaks
+Teha kõik pealkirjad paremale
+Et tabelid oleksid allosas
+Et tabelid oleksid väiksemad
+Lisada üks pilt vastavalt teemale
