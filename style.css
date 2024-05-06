@@ -2,10 +2,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: black;
-  background-size: cover;
-  background-position: unset;
+}
+body {
+  background-image: url('matich52.jpg');
+  background-size: cover; /* This ensures the image covers the entire background */
   background-repeat: no-repeat;
+  background-position: unset;
+
 }
 
 header {
