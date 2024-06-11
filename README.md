@@ -4,7 +4,7 @@
 2. [Admin leht](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/README.md#admin-leht)
 3. [Haldus Leht](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/README.md#haldus-leht)
 4. [Kõik failinimed](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/README.md#k%C3%B5ik-failinimed)
-5. [Ülesanded](https://github.com/matveikulakovski/Arvestustoo_Veebi/blob/main/README.md#ülesanded)
+5. [Ülesanded](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/README.md#%C3%BClesanded)
    
 # Login
 Me kontrollime, kas nende andmetega kasutaja on andmebaasis olemas ja suuname ta seejärel saidile.
