@@ -519,6 +519,9 @@ if(isset($_SESSION['kasutaja']))
 5. login.php
 6. logout.php
 7. main.php
+8. admin.PNG
+9. haldus.PNG
+10. Login.PNG
 
 # Ülesanded
 1. Muuta taustavärvi mitmekesisemaks 
