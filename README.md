@@ -1,4 +1,4 @@
-# Veebipood Read Me  
+# PHP project "Veebipood"  
 ## Sisukord
 1. [Login](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/README.md#login)
 2. [Admin leht](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/README.md#admin-leht)
