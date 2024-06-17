@@ -8,6 +8,32 @@
    
 # Login
 Me kontrollime, kas nende andmetega kasutaja on andmebaasis olemas ja suuname ta seejärel saidile.
+
+### Kood:
+```
+global $yhendus;
+if (!empty($_POST['login']) && !empty($_POST['pass'])) {
+
+ $login = htmlspecialchars(trim($_POST['login']));
+ $pass = htmlspecialchars(trim($_POST['pass']));
+
+
+ $cool = 'superpaev';
+ $kryp = crypt($pass, $cool);
+
+
+ $kask2 = $yhendus->prepare("INSERT INTO kasutaja (kasutaja, parool) VALUES (?, ?)");
+ $kask2->bind_param("ss", $login, $kryp);
+ $kask2->execute();
+     
+ echo '<script>alert("Registreerimine õnnestus!"); window.location.href = "login.php";</script>';
+
+ $kask2->close();
+ $yhendus->close();
+ exit();
+}
+```
+
 # Admin leht
 ![pilt](https://github.com/matveikulakovskiii/Arvestustoo_Veebi/blob/main/admin.PNG)
 See on koht, kus saate lisada ja eemaldada objekte
